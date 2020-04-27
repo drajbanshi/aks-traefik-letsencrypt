@@ -10,17 +10,17 @@
 
 
 **Install cert manager:**
-`
-kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace traefik 
 
-kubectl label namespace traefik certmanager.k8s.io/disable-validation=true
+`kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace traefik` 
 
-helm repo add jetstack https://charts.jetstack.io
+`kubectl label namespace traefik certmanager.k8s.io/disable-validation=true`
 
-helm repo update
+`helm repo add jetstack https://charts.jetstack.io`
 
-helm install cert-manager --namespace traefik --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
-`
+`helm repo update`
+
+`helm install cert-manager --namespace traefik --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer`
+
 
 **Test cert manager pods**
 
