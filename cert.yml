@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: cert-drajbanshi
+spec:
+  secretName: cert-drajbanshi
+  dnsNames:
+  - drajbanshi.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
